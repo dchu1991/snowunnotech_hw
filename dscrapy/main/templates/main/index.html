@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+
+<html>
+    <body>
+        <title>NBA News</title>
+
+        <div id="news-detail"></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+            // ajax piece
+
+            // select html element
+            var newsContainer = document.getElementById("news-detail")
+
+            // ajax magic 
+            $(document).ready(function(){
+                $("button").click(function(){
+                    $.get("api/News/?format=json", function(data, status){
+                    alert("Status: " + status);
+                    renderHTML(data);
+                    });
+                });
+            });
+
+            // render REST api data into HTML
+            function renderHTML(apidata){
+                var htmlString = "";
+                for (i = 0; i < apidata.length; i++){
+                    htmlString += "<h2><a href=" + apidata[i].link_url + ">" + apidata[i].title + "</a></h2>"
+                    htmlString += "<img src=" + apidata[i].img_url + ">"
+                }
+                newsContainer.insertAdjacentHTML('beforeend', htmlString);
+            }
+        </script>
+        <button>Get API?</button>
+    </body>
+</html>
