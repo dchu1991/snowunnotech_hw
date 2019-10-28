@@ -1,39 +1,28 @@
-
+{% load static %}
 <!DOCTYPE html>
 
 <html>
+    <head>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+
     <body>
         <title>NBA News</title>
+        
+        <button class="btn btn-primary" id="start-crawl">Start Crawl</button>
+        <button class="btn btn-info" id="show">Get REST API</button>
 
-        <div id="news-detail"></div>
+        <div id="news-list"></div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script>
-            // ajax piece
+        <script src="{% static 'js/main.js'%}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" 
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
 
-            // select html element
-            var newsContainer = document.getElementById("news-detail")
-
-            // ajax magic 
-            $(document).ready(function(){
-                $("button").click(function(){
-                    $.get("api/News/?format=json", function(data, status){
-                    alert("Status: " + status);
-                    renderHTML(data);
-                    });
-                });
-            });
-
-            // render REST api data into HTML
-            function renderHTML(apidata){
-                var htmlString = "";
-                for (i = 0; i < apidata.length; i++){
-                    htmlString += "<h2><a href=" + apidata[i].link_url + ">" + apidata[i].title + "</a></h2>"
-                    htmlString += "<img src=" + apidata[i].img_url + ">"
-                }
-                newsContainer.insertAdjacentHTML('beforeend', htmlString);
-            }
-        </script>
-        <button>Get API?</button>
     </body>
 </html>

@@ -12,5 +12,4 @@ class ScrapyAppPipeline(object):
                          link_url = item['link_url'], 
                          img_url = item['img_url'])
         news.save()
-        print(item)
         return item
