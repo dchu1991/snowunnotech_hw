@@ -7,6 +7,8 @@
 scrapyd
 ```
 
+(however in the venv I ran into trouble I couldn't solve... see note)
+
 * second, go to dscrapy and run the server by
 ```bash
 python manage.py runserver
