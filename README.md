@@ -22,8 +22,11 @@ python manage.py runserver
 # Acknowledgement: 
 
 This project is from snowuunotech before interview.
+
 Most of the framework are inspired by this [article] (https://medium.com/@ali_oguzhan/how-to-use-scrapy-with-django-application-c16fabd0e62e)
+
 As well as the [Scrapyd-Django-Template] (https://github.com/adriancast/Scrapyd-Django-Template)
+
 Most of the JS implementation are from this [repository] (https://github.com/copyNdpaste/scrapy-with-django)
 
 
