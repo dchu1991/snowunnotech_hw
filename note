@@ -1,5 +1,6 @@
 on windows 10, using venv, somehow when I use the command
 	curl http://localhost:6800/schedule.json -d project=default -d spider=news
+or when I press the button,
 
 the scrapyd would return the following error:
 

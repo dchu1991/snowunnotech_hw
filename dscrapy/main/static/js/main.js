@@ -34,13 +34,18 @@ $(document).ready(function(){
                 var counter = 0;
                 $.each(data, function(index, ele){
                     if(dataId.includes(ele.id)){
-                        console.log("dataId contains " + ele.id);
+                        // console.log("dataId contains " + ele.id);
                     } else{
-                        console.log("dataId does not contain  " + ele.id);
+                        // console.log("dataId does not contain  " + ele.id);
                         counter++;
                     }
                 });
-                $('#progress').html(counter + "new news available.");
+                $('#progress').attr("class", "alert alert-secondary");
+                $('#progress').html(counter + " new news available.");
+                setTimeout(function(){
+                    $('#progress').empty();
+                    $('#progress').removeClass();
+                },2000);
             }
         });
     });
