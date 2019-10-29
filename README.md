@@ -15,8 +15,8 @@ python manage.py runserver
 * there are currently four buttons at home:
 	* Start Crawl: will send a POST signal to scrapyd api and start the crawling process.  Notify the frontend when finished.
 	* Get REST API: will get the json from REST API and render them to HTML.
-	* CleanUp DataBase will delete all records in the DataBase table.
-	* Manual Refresh -- as the name suggests, reload home.
+	* CleanUp DataBase: delete all records in the DataBase table.
+	* Manual Refresh: as the name suggests, reload home.
 
 
 # Acknowledgement: 
