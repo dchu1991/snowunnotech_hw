@@ -88,8 +88,8 @@ def crawl(request):
 
 ####################################################################################
 
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, redirect
+from django.http import HttpResponse, Http404
 
 ## rest_framework
 from rest_framework import viewsets
@@ -104,3 +104,10 @@ def index(request):
 class NewsAPIView(viewsets.ModelViewSet):
     queryset = NewsModel.objects.all()
     serializer_class = NewsSerializer
+
+def delete_all(request):
+    if NewsModel.objects.all():
+        NewsModel.objects.all().delete()
+        return redirect(index)
+    else:
+        raise Http404("No News in DataBase!")

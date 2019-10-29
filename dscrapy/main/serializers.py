@@ -7,4 +7,4 @@ class NewsSerializer(serializers.ModelSerializer):
     class Meta:
         """specifying attributes"""
         model = NewsModel
-        fields = ('title', 'link_url', 'img_url')
+        fields = ('id', 'title', 'link_url', 'img_url')

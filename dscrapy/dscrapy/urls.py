@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from main.views import index, NewsAPIView
+from main.views import index, NewsAPIView, crawl, delete_all
 
 from rest_framework import routers
 router = routers.DefaultRouter()
@@ -24,5 +24,7 @@ router.register('News', NewsAPIView)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('api/', include(router.urls), name='NewsAPI')
+    path('api/', include(router.urls), name='NewsAPI'),
+    path('crawl/', crawl, name='crawl'),
+    path('delete_all/', delete_all, name='delete_all')
 ]
